@@ -403,6 +403,93 @@ textarea:focus, input:focus{
 #certBtns{ margin-top:14px; display:flex; justify-content:flex-end; gap:10px; flex-wrap:wrap; }
 .certBtn{ border:2px solid rgba(0,0,0,.7); background:#fff; border-radius:12px; padding:10px 12px; cursor:pointer; font-weight:900; }
 /* ======================= FIM 10) OVERLAYS ======================= */
+/* =========================================================
+   ♿ MODO BAIXA VISÃO + ANTI-CORTE UNIVERSAL
+   Funciona em: iPhone, Android, Tablet, Desktop
+========================================================= */
+
+/* Nunca esconder overflow */
+html, body{
+  max-width:100%;
+  overflow-x:auto;
+  overflow-y:auto;
+}
+
+/* Imagens nunca estouram */
+img, video, iframe, canvas{
+  max-width:100%;
+  height:auto;
+}
+
+/* ---------- RESPONSIVO AUTOMÁTICO (CELULAR) ---------- */
+@media (max-width: 1024px){
+
+  body{
+    padding:10px;
+  }
+
+  .page{
+    width:min(297mm, 98vw);
+    max-width:98vw;
+    height:auto;            /* nunca corta embaixo */
+    min-height:unset;
+    overflow:visible;       /* nunca corta lateral */
+  }
+
+  .content{
+    position:relative !important;
+    left:auto !important;
+    right:auto !important;
+    top:auto !important;
+    bottom:auto !important;
+    padding:14px;
+  }
+
+  /* Se tiver grid 2 colunas */
+  .cols{
+    grid-template-columns:1fr !important;
+  }
+}
+
+/* ---------- BAIXA VISÃO ---------- */
+body.lowVision{
+  font-size:140%;
+  overflow-x:auto;
+  overflow-y:auto;
+}
+
+body.lowVision .page{
+  width:min(297mm, 98vw);
+  max-width:98vw;
+  height:auto;
+  overflow:visible;
+}
+
+body.lowVision .content{
+  position:relative !important;
+  left:auto !important;
+  right:auto !important;
+  top:auto !important;
+  bottom:auto !important;
+  padding:16px;
+}
+
+body.lowVision .cols{
+  grid-template-columns:1fr !important;
+}
+
+/* Botões maiores */
+body.lowVision button{
+  font-size:1.1em;
+  padding:12px 16px;
+}
+
+/* Inputs maiores */
+body.lowVision input,
+body.lowVision textarea{
+  font-size:1.1em;
+  padding:10px;
+}
 </style>
 </head>
 
